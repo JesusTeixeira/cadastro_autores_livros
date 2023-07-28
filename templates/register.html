@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/login_cadastro_form.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="page">
+        <form action="/register" method="POST" class="formLogin">
+            <h1>Cadastre-se</h1>
+            <p>Crie seu usuario</p>
+            <label for="nome">Nome completo</label>
+            <input type="nome" placeholder="Digite seu nome" autofocus="true" name="nome">
+
+            <label for="email">Email</label>
+            <input type="email" placeholder="Digiete seu email" autofocus="true" name="email">
+
+            <label for="password">Password</label>
+            <input type="password" placeholder="*********" name="password">
+
+            <button type="submit" class="btn">Registrar</button>
+            <a type="submit" class="btn" href="/">Voltar</a>
+        </form>
+    </div>
+
+</body>
+
+</html>

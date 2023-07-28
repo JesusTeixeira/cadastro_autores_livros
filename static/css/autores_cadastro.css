@@ -1,0 +1,21 @@
+.btn {
+    width: 100px;
+    height: 40px;
+    font-size: 100px;
+    text-align: center;
+
+}
+
+#btn_voltar {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 10px;
+}
+
+#btn_salvar {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 10px;
+}

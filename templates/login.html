@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/login_form.css">
+    <title>Login</title>
+</head>
+
+<body>
+
+    <div class="page">
+        
+        <div class="box">
+            <form method="POST" action="/inicial" class="formLogin">
+                <h1 class="title">Login</h1>
+                <p>Digite os seus dados de acesso no campo abaixo.</p>
+
+                        <label for="email">User:</label>
+                        <input class="input is-large" type="email" name="email" placeholder="Digite seu email" autofocus="True">
+  
+
+                        <label for="password">Password:</label>
+                        <input class="input is-large" type="password" name="password" placeholder="Digite sua senha">
+ 
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        Remember me
+                    </label>
+
+                    <button class="btn">Login</button>
+
+                <a href="/">Esqueci minha senha</a>
+                <a href="/register">Cadastrar-se</a>
+            </form>
+        </div>
+
+            
+
+    </div>
+
+</body>
+
+</html>
