@@ -1,4 +1,4 @@
-from flask import request, render_template, redirect, Blueprint
+from flask import request, render_template, redirect, Blueprint, session
 from database.models import Autores
 from database.database import Database, select
 
@@ -47,9 +47,12 @@ def deletar_autor(id):
 
 @bp.route('/listagem')
 def abrir_listagem_autores():
-    query = select(Autores)
-    autores = Database().get_all(query)
-    return render_template('autores/listagem.html', autores=autores)
+    if session:
+        query = select(Autores)
+        autores = Database().get_all(query)
+        return render_template('autores/listagem.html', autores=autores)
+    else:
+        return redirect('/')
 
 @bp.route('/cadastro')
 def abrir_pagina_cadastro():
