@@ -6,17 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listagem</title>
     <link rel="stylesheet" href="/static/css/listagem.css">
+
+
+
 </head>
 
 <body>
-    <div class="">
+    <div class="page">
         {% include "menu.html" %}
-
-        <div style="width: 100%; display: flex; justify-content: flex-end;">
-            <a class="btn btn-primary" href="/livros/cadastro">Cadastrar livro</a>
-        </div>
+        <a class="btn btn-primary" href="/livros/cadastro">Cadastrar livro</a>
         <ul>
             <table class="table">
+
                 <thead>
                     <tr>
                         <th>ID</th>

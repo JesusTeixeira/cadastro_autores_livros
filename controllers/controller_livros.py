@@ -13,18 +13,19 @@ bp = Blueprint(
 class LivrosCtrl:
     @bp.route('/editar/<int:id>', methods=['POST'])
     def editar_livro(id):
-        if session:
-            query = select(Livros).where(Livros.id==id)
-            livro: Livros = Database().get_one(query)
-            try:
-                if data := request.form:
-                    livro.titulo = data['titulo']
-                    livro.autor = data['autor']
+        query = select(Livros).where(Livros.id==id)
+        livro: Livros = Database().get_one(query)
+        try:
+            if data := request.form:
+                livro.titulo = data['titulo']
+                livro.autor = data['autor']
 
-                    Database().run_update(livro)
-                    return redirect("/livros/listagem")
-            except Exception as e:
-                return f'Livro não encontrado'
+                Database().run_update(livro)
+                return redirect("/livros/listagem")
+  
+        except Exception as e:
+            return f'Livro não encontrado'
+
 
     @bp.route('/adicionar', methods=['POST'])
     def adicionar_livro():
@@ -60,13 +61,19 @@ def abrir_listagem_livros():
 
 @bp.route('/cadastro')
 def abrir_pagina_cadastro():
-    return render_template('livros/cadastro.html')
+    if session:
+        return render_template('livros/cadastro.html')
+    else:
+        return redirect('/')
 
 @bp.route('/editar/<int:id>')
 def abrir_pagina_edicao(id):
-    query = select(Livros).where(Livros.id==id)
-    livro = Database().get_one(query)
-    return render_template('livros/editar.html', livro=livro)
+    if session:
+        query = select(Livros).where(Livros.id==id)
+        livro = Database().get_one(query)
+        return render_template('livros/editar.html', livro=livro)
+    else:
+        return redirect('/')
 
 @bp.route('/deletar/<int:id>')
 def abrir_delete_registro(id):
