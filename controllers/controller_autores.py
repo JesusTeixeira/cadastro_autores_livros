@@ -56,13 +56,19 @@ def abrir_listagem_autores():
 
 @bp.route('/cadastro')
 def abrir_pagina_cadastro():
-    return render_template('autores/cadastro.html')
+    if session:
+        return render_template('autores/cadastro.html')
+    else:
+        return redirect('/')
 
 @bp.route('/editar/<int:id>')
 def abrir_pagina_edicao(id):
-    query = select(Autores).where(Autores.id==id)
-    autor = Database().get_one(query)
-    return render_template('autores/editar.html', autor=autor)
+    if session:
+        query = select(Autores).where(Autores.id==id)
+        autor = Database().get_one(query)
+        return render_template('autores/editar.html', autor=autor)
+    else:
+        return redirect('/')
 
 @bp.route('/deletar/<int:id>')
 def abrir_delete_registro(id):
