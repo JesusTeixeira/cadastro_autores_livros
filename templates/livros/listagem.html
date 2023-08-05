@@ -6,44 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listagem</title>
     <link rel="stylesheet" href="/static/css/listagem.css">
-
-
-
+    {% include "menu.html" %}
 </head>
 
 <body>
-    <div class="page">
-        {% include "menu.html" %}
-        <a class="btn btn-primary" href="/livros/cadastro">Cadastrar livro</a>
-        <ul>
-            <table class="table">
+    <a class="btn btn-primary" href="/livros/cadastro">Cadastrar livro</a>
 
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>TITULO</th>
-                        <th>AUTOR</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for livro in livros %}
-                    <tr>
-                        <td>{{livro['id']}}</td>
-                        <td>{{livro['titulo']}}</td>
-                        <td>{{livro['autor']}}</td>
-                        <td><a class="btn btn-warning" href="/livros/editar/{{livro['id']}}" type="submit">Editar</a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </ul>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-            crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-            crossorigin="anonymous"></script>
-    </div>
+    <ul>
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TITULO</th>
+                    <th>AUTOR</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for livro in livros %}
+                <tr>
+                    <td>{{livro['id']}}</td>
+                    <td>{{livro['titulo']}}</td>
+                    <td>{{livro['autor']}}</td>
+                    <td><a class="btn btn-warning" href="/livros/editar/{{livro['id']}}" type="submit">Editar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </ul>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+
 </body>
 
 </html>

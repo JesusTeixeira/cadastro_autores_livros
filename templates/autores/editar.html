@@ -6,37 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/static/css/autores_editar.css" />
+    {% include "menu.html" %}
 </head>
 
 <body>
-    {% include "menu.html" %}
+    <ul>
 
-    <form action="/autores/editar/{{autor['id']}}" method="POST">
-        <input class="form-control form-control-lg" type="hidden" name="id" placeholder="Id"
-            value="{{autor['id'] if autor else ''}}">
-        <input class="form-control form-control-lg" type="text" name="nome" placeholder="Nome"
-            value="{{autor['nome'] if autor else ''}}">
-        <input class="form-control form-control-lg" type="text" name="email" placeholder="Email"
-            value="{{autor['email'] if autor else ''}}">
-        <input class="form-control form-control-lg" type="text" name="nome_do_livro" placeholder="Nome do Livro"
-            value="{{autor['nome_do_livro'] if autor else ''}}">
-        <div id="btn_salvar">
-            <button class="btn btn-primary" type="submit">Salvar</button>
-        </div>
+        <form action="/autores/editar/{{autor['id']}}" method="POST">
 
-        <div id="btn_voltar">
-        <a class="btn btn-warning" href="/autores/listagem">Voltar</a>
-        </div>
+            <input class="form-control form-control-lg" type="hidden" name="id" placeholder="Id"
+                value="{{autor['id'] if autor else ''}}">
 
-    </form>
+            <br>
+            <h3>Nome</h3>
+            <input class="form-control form-control-lg" type="text" name="nome" placeholder="Nome"
+                value="{{autor['nome'] if autor else ''}}">
 
+            <br>
+            <h3>Email</h3>
+            <input class="form-control form-control-lg" type="text" name="email" placeholder="Email"
+                value="{{autor['email'] if autor else ''}}">
 
-    <form action="/autores/deletar/{{autor['id']}}" method="POST">
-        <div id="btn_deletar">
-            <button type="submit" class="btn btn-danger" value="id" href="/autores/listagem">Deletar</button>
-        </div>
-    </form>
+            <br>
+            <h3>Nome do livro</h3>
+            <input class="form-control form-control-lg" type="text" name="nome_do_livro" placeholder="Nome do Livro"
+                value="{{autor['nome_do_livro'] if autor else ''}}">
 
+            <div id="btn_salvar">
+                <button class="btn btn-primary" type="submit">Salvar</button>
+            </div>
+
+            <div id="btn_voltar">
+                <a class="btn btn-warning" href="/autores/listagem">Voltar</a>
+            </div>
+
+        </form>
+
+        <form action="/autores/deletar/{{autor['id']}}" method="POST">
+            <div id="btn_deletar">
+                <button type="submit" class="btn btn-danger" value="id" href="/autores/listagem">Deletar</button>
+            </div>
+        </form>
+    </ul>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         crossorigin="anonymous">

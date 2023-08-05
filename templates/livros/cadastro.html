@@ -6,16 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar novo livro</title>
     <link rel="stylesheet" href="/static/css/livros_cadastro.css" />
+    {% include "menu.html" %}
 </head>
 
 <body>
-    {% include "menu.html" %}
-
-    <div class="page">
+    <ul>
         <form action="/livros/adicionar" method="POST">
             <input class="form-control form-control-lg" type="hidden" name="id" placeholder="Id">
-            <input class="form-control form-control-lg" type="text" name="titulo" placeholder="Titulo">
-            <input class="form-control form-control-lg" type="text" name="autor" placeholder="Autor">
+
+            <br>
+            <h3>Titulo</h3>
+            <input class="form-control form-control-lg" type="text" name="titulo" placeholder="">
+
+            <br>
+            <h3>Autor</h3>
+            <input class="form-control form-control-lg" type="text" name="autor" placeholder="">
 
             <div id="btn_salvar">
                 <button class="btn btn-primary" type="submit">Salvar</button>
@@ -25,14 +30,13 @@
                 <a class="btn btn-warning" href="/livros/listagem">Voltar</a>
             </div>
         </form>
+    </ul>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
 
-
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-            crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-            crossorigin="anonymous"></script>
-    </div>
 </body>
 
 </html>
